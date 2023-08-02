@@ -42,11 +42,11 @@ public class AddressBook {
 	public void editContact() {
 		System.out.println("Enter the first name to edit : ");
 		String fName=scan.next();
-		boolean isAvilabe=false;
+		boolean isAvilable=false;
 		
 		for(Contact contact : contactArrayList) {
 			if(contact.getFirstName().equals(fName)) {
-				isAvilabe=true;
+				isAvilable=true;
 				
 				System.out.println("Enter the first name");
 			    contact.setFirstName(scan.next());
@@ -68,7 +68,25 @@ public class AddressBook {
 			    //contactArrayList.add(contact);
 			}
 		}
-		if(isAvilabe==false) {
+		if(isAvilable==false) {
+			System.out.println("Not Avilable");
+		}
+	}
+	
+	public void deleteContact() {
+		System.out.println("Enter the first name of delete");
+		String fName=scan.next();
+		boolean isAvilable=false;
+		
+		for(Contact contact : contactArrayList) {
+			if(contact.getFirstName().equalsIgnoreCase(fName)) {
+				isAvilable=true;
+				contactArrayList.remove(contact);
+				System.out.println("Deleted");
+				break;
+			}
+		}
+		if(isAvilable == false) {
 			System.out.println("Not Avilable");
 		}
 	}
